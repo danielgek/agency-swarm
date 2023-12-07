@@ -97,12 +97,8 @@ class Agency:
                     for bot_message in gen:
                         if bot_message.sender_name.lower() == "user":
                             continue
-                        print(bot_message.msg_type)
-                        print(bot_message.get_formatted_content())
-                        print(bot_message.get_sender_emoji())
-                        print(bot_message.receiver_name)
-                        print(bot_message.sender_name)
-                        print(bot_message.content)
+                        if bot_message.msg_type is "🧠":
+                            continue
                         message = bot_message.get_sender_emoji() + " " + bot_message.get_formatted_content()
 
                         history.append((None, message))
