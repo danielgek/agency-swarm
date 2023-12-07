@@ -65,7 +65,7 @@ class Agency:
 
         return gen
 
-    def demo_gradio(self, height=600):
+    def demo_gradio(self, height=600, css: str, theme):
         """
         Launches a Gradio-based demo interface for the agency chatbot.
 
@@ -79,8 +79,8 @@ class Agency:
         except ImportError:
             raise Exception("Please install gradio: pip install gradio")
 
-        with gr.Blocks() as demo:
-            chatbot = gr.Chatbot(height=height)
+        with gr.Blocks(theme, theme) as demo:
+            chatbot = gr.Chatbot(height=height, theme=theme)
             msg = gr.Textbox()
 
             def user(user_message, history):
