@@ -81,11 +81,11 @@ class Agency:
 
         with gr.Blocks(theme=theme, css=css) as demo:
             chatbot = gr.Chatbot(height=height)
-            msg = gr.Textbox()
+            msg = gr.Textbox(show_label=False, placeholder="Write text and press enter")
 
             def user(user_message, history):
                 # Append the user message with a placeholder for bot response
-                user_message = "👤 User: " + user_message.strip()
+                user_message =  user_message.strip()
                 return "", history + [[user_message, None]]
 
             def bot(history):
@@ -98,7 +98,7 @@ class Agency:
                         if bot_message.sender_name.lower() == "user":
                             continue
 
-                        message = bot_message.get_sender_emoji() + " " + bot_message.get_formatted_content()
+                        message = bot_message.get_formatted_content()
 
                         history.append((None, message))
                         yield history
