@@ -97,7 +97,7 @@ class Agency:
                     for bot_message in gen:
                         if bot_message.sender_name.lower() == "user":
                             continue
-                        if bot_message.msg_type is "🧠":
+                        if bot_message.msg_type == "🧠":
                             continue
                         message = bot_message.content
 
