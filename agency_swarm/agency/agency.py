@@ -104,7 +104,7 @@ class Agency:
                             continue
                         if bot_message.msg_type == "function" or bot_message.msg_type == "function_output":
                             continue
-                        message = bot_message.get_formatted_content()
+                        message = bot_message.content
 
                         history.append((None, message))
                         yield history
