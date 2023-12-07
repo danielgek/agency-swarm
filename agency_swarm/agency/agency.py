@@ -99,7 +99,7 @@ class Agency:
                             continue
                         if bot_message.msg_type is "🧠":
                             continue
-                        message = bot_message.get_sender_emoji() + " " + bot_message.get_formatted_content()
+                        message = bot_message.content
 
                         history.append((None, message))
                         yield history
