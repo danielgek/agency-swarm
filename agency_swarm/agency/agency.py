@@ -97,11 +97,9 @@ class Agency:
                     for bot_message in gen:
                         if bot_message.sender_name.lower() == "user":
                             continue
-                        if bot_message.msg_type == "🧠":
-                            continue
-                        message = bot_message.content
-
-                        history.append((None, message))
+                        if bot_message.msg_type == 'text':
+                            message = bot_message.content
+                            history.append((None, message))
                         yield history
                 except StopIteration:
                     # Handle the end of the conversation if necessary
