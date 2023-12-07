@@ -90,8 +90,13 @@ class Agency:
 
             def bot(history):
                 # Replace this with your actual chatbot logic
-                gen = self.get_completion(message=history[-1][0])
-
+                gen = None
+                try: 
+                    gen = self.get_completion(message=history[-1][0])
+                except Exception:
+                    pass
+                if gen == None:
+                    return
                 try:
                     # Yield each message from the generator
                     for bot_message in gen:
