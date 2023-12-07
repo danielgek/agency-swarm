@@ -80,7 +80,7 @@ class Agency:
             raise Exception("Please install gradio: pip install gradio")
 
         with gr.Blocks(theme=theme, css=css) as demo:
-            chatbot = gr.Chatbot(height=height, theme=theme)
+            chatbot = gr.Chatbot(height=height)
             msg = gr.Textbox()
 
             def user(user_message, history):
