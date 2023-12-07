@@ -104,7 +104,13 @@ class Agency:
                             continue
                         if bot_message.msg_type == "function" or bot_message.msg_type == "function_output":
                             continue
-                        message = bot_message.content
+
+                        if bot_message.sender_name.lower() == "planner" and bot_message.receiver_name.lower() != "user":
+                            message = 'Getting info from ' + bot_message.receiver_name + '...'
+                        elif bot_message.receiver_name.lower() == "planner" and bot_message.receiver_name.lower() != "user":
+                            continue
+                        else:
+                            message = bot_message.content
 
                         history.append((None, message))
                         yield history
